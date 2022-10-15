@@ -5,7 +5,7 @@ using Balta.ContentContext;
 
 namespace Balta{
     class Program{
-        static void Main(string[] args){
+        static void Main(string[] args) {
             var articles = new List<Article>();
             articles.Add(new Article("Artigo 1", "artigo1"));
             articles.Add(new Article("Artigo 2", "artigo2"));
@@ -27,7 +27,7 @@ namespace Balta{
             careers.Add(new Career("Carreira 2", "carreira2"));
             careers.Add(new Career("Carreira 3", "carreira3"));
             var careerItems = new List<CareerItem>();
-            careerItems.Add(new CareerItem(1 ,"Item 1", "Descrição", courses[0]));
+            careerItems.Add(new CareerItem(1 ,"Item 1", "Descrição", null));
             careerItems.Add(new CareerItem(2, "Item 2", "Descrição", courses[0]));
             careerItems.Add(new CareerItem(3, "Item 3", "Descrição", courses[0]));
 
@@ -38,7 +38,12 @@ namespace Balta{
             foreach(var career in careers){
                 Console.WriteLine(career.Title);
                 foreach(var item in careerItems.OrderBy(x => x.Order)){
-                    Console.WriteLine($"{item.Order} - {item.Title} - {item.Course.Title} - {item.Course.Level}");
+                    Console.WriteLine($"{item.Order} - {item.Title}");
+                    Console.WriteLine($"{item.Course?.Title} - {item.Course?.Level}");
+
+                    foreach(var notification in item.Notifications){
+                        Console.WriteLine($"{notification.Property} - {notification.Message}");
+                    }
                 }
             }
 
