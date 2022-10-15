@@ -1,7 +1,7 @@
 using System;
 using Balta.NotificationContext;
 
-namespace Balta.ContentContext{
+namespace Balta.SharedContext{
     public class Base : Notifiable{
         public Base(){
             Id = Guid.NewGuid(); // SPOF

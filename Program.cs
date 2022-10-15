@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Balta.ContentContext;
+using Balta.SubscriptionContext;
 
 namespace Balta{
     class Program{
@@ -46,6 +47,10 @@ namespace Balta{
                     }
                 }
             }
+
+            var payPalSubscription = new PayPalSubscription();
+            var student = new Student();
+            student.CreateSubscription(payPalSubscription);
 
         }
     }
